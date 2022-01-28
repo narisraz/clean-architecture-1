@@ -1,6 +1,6 @@
-package com.naris.learn.cleanarchitecture1.ports.database;
+package com.naris.learn.cleanarchitecture1.domain.ports.database;
 
-import com.naris.learn.cleanarchitecture1.entities.Quote;
+import com.naris.learn.cleanarchitecture1.domain.entities.Quote;
 
 import java.util.List;
 

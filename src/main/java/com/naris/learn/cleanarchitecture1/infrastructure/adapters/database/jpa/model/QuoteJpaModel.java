@@ -1,4 +1,4 @@
-package com.naris.learn.cleanarchitecture1.adapters.database.jpa.model;
+package com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,8 +1,8 @@
-package com.naris.learn.cleanarchitecture1.adapters.api;
+package com.naris.learn.cleanarchitecture1.infrastructure.adapters.api;
 
-import com.naris.learn.cleanarchitecture1.entities.Quote;
-import com.naris.learn.cleanarchitecture1.ports.usecases.RequestQuoteInputBoundary;
-import com.naris.learn.cleanarchitecture1.ports.usecases.SaveQuoteInputBoundary;
+import com.naris.learn.cleanarchitecture1.domain.entities.Quote;
+import com.naris.learn.cleanarchitecture1.domain.ports.usecases.RequestQuoteInputBoundary;
+import com.naris.learn.cleanarchitecture1.domain.ports.usecases.SaveQuoteInputBoundary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

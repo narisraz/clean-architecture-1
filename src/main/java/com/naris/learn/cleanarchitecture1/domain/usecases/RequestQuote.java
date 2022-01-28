@@ -1,8 +1,8 @@
-package com.naris.learn.cleanarchitecture1.usecases;
+package com.naris.learn.cleanarchitecture1.domain.usecases;
 
-import com.naris.learn.cleanarchitecture1.entities.Quote;
-import com.naris.learn.cleanarchitecture1.ports.database.QuoteGateway;
-import com.naris.learn.cleanarchitecture1.ports.usecases.RequestQuoteInputBoundary;
+import com.naris.learn.cleanarchitecture1.domain.entities.Quote;
+import com.naris.learn.cleanarchitecture1.domain.ports.database.QuoteGateway;
+import com.naris.learn.cleanarchitecture1.domain.ports.usecases.RequestQuoteInputBoundary;
 
 import java.util.List;
 

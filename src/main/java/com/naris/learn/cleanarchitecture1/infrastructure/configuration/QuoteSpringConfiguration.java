@@ -1,12 +1,11 @@
-package com.naris.learn.cleanarchitecture1.configuration;
+package com.naris.learn.cleanarchitecture1.infrastructure.configuration;
 
-import com.naris.learn.cleanarchitecture1.adapters.database.jpa.QuoteJpaGateway;
-import com.naris.learn.cleanarchitecture1.adapters.database.jpa.QuoteJpaRepository;
-import com.naris.learn.cleanarchitecture1.ports.database.QuoteGateway;
-import com.naris.learn.cleanarchitecture1.ports.usecases.RequestQuoteInputBoundary;
-import com.naris.learn.cleanarchitecture1.ports.usecases.SaveQuoteInputBoundary;
-import com.naris.learn.cleanarchitecture1.usecases.RequestQuote;
-import com.naris.learn.cleanarchitecture1.usecases.SaveQuote;
+import com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.QuoteJpaGateway;
+import com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.QuoteJpaRepository;
+import com.naris.learn.cleanarchitecture1.domain.ports.usecases.RequestQuoteInputBoundary;
+import com.naris.learn.cleanarchitecture1.domain.ports.usecases.SaveQuoteInputBoundary;
+import com.naris.learn.cleanarchitecture1.domain.usecases.RequestQuote;
+import com.naris.learn.cleanarchitecture1.domain.usecases.SaveQuote;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

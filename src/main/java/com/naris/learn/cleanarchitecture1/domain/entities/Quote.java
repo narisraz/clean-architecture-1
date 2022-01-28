@@ -1,4 +1,4 @@
-package com.naris.learn.cleanarchitecture1.entities;
+package com.naris.learn.cleanarchitecture1.domain.entities;
 
 public class Quote {
     int id;

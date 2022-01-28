@@ -1,9 +1,9 @@
-package com.naris.learn.cleanarchitecture1.adapters.database.jpa;
+package com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa;
 
-import com.naris.learn.cleanarchitecture1.adapters.database.jpa.model.QuoteJpaModel;
-import com.naris.learn.cleanarchitecture1.adapters.database.jpa.model.QuoteModelMapper;
-import com.naris.learn.cleanarchitecture1.entities.Quote;
-import com.naris.learn.cleanarchitecture1.ports.database.QuoteGateway;
+import com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.model.QuoteJpaModel;
+import com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.model.QuoteModelMapper;
+import com.naris.learn.cleanarchitecture1.domain.entities.Quote;
+import com.naris.learn.cleanarchitecture1.domain.ports.database.QuoteGateway;
 
 import java.util.List;
 
