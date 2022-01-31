@@ -1,11 +1,12 @@
 package com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa;
 
-import com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.model.QuoteJpaModel;
-import com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.model.QuoteModelMapper;
 import com.naris.learn.cleanarchitecture1.domain.entities.Quote;
 import com.naris.learn.cleanarchitecture1.domain.ports.database.QuoteGateway;
+import com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.model.QuoteJpaModel;
+import com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.model.QuoteModelMapper;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public class QuoteJpaGateway implements QuoteGateway {
@@ -22,8 +23,8 @@ public class QuoteJpaGateway implements QuoteGateway {
     }
 
     @Override
-    public Quote getOne(int id) {
-        return QuoteModelMapper.INSTANCE.quoteJpaModelToQuote(quoteJpaRepository.findById(id).get());
+    public Optional<Quote> getOne(int id) {
+        return quoteJpaRepository.findById(id).map(QuoteModelMapper.INSTANCE::quoteJpaModelToQuote);
     }
 
     @Override

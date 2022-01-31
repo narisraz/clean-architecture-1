@@ -1,32 +1,36 @@
 package com.naris.learn.cleanarchitecture1.infrastructure.configuration;
 
+import com.naris.learn.cleanarchitecture1.domain.ports.presenters.QuotePresenter;
+import com.naris.learn.cleanarchitecture1.domain.ports.usecases.ReadQuoteInputBoundary;
+import com.naris.learn.cleanarchitecture1.domain.ports.usecases.SaveQuoteInputBoundary;
+import com.naris.learn.cleanarchitecture1.domain.usecases.ReadQuote;
+import com.naris.learn.cleanarchitecture1.domain.usecases.SaveQuote;
+import com.naris.learn.cleanarchitecture1.infrastructure.adapters.api.QuoteRestPresenter;
 import com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.QuoteJpaGateway;
 import com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.QuoteJpaRepository;
-import com.naris.learn.cleanarchitecture1.domain.ports.usecases.RequestQuoteInputBoundary;
-import com.naris.learn.cleanarchitecture1.domain.ports.usecases.SaveQuoteInputBoundary;
-import com.naris.learn.cleanarchitecture1.domain.usecases.RequestQuote;
-import com.naris.learn.cleanarchitecture1.domain.usecases.SaveQuote;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class QuoteSpringConfiguration {
 
-    @Autowired
-    private QuoteJpaRepository quoteJpaRepository;
-
     @Bean
-    RequestQuoteInputBoundary createRequestQuote() {
-        return new RequestQuote(createQuoteGateway());
+    QuotePresenter createQuotePresenter() {
+        return new QuoteRestPresenter();
     }
 
     @Bean
-    SaveQuoteInputBoundary createSaveQuote() {
-        return new SaveQuote(createQuoteGateway());
+    QuoteJpaGateway createQuoteGateway(QuoteJpaRepository repository) {
+        return new QuoteJpaGateway(repository);
     }
 
-    private QuoteJpaGateway createQuoteGateway() {
-        return new QuoteJpaGateway(quoteJpaRepository);
+    @Bean
+    ReadQuoteInputBoundary createRequestQuote(QuoteJpaGateway gateway, QuotePresenter presenter) {
+        return new ReadQuote(gateway, presenter);
+    }
+
+    @Bean
+    SaveQuoteInputBoundary createSaveQuote(QuoteJpaGateway gateway, QuotePresenter presenter) {
+        return new SaveQuote(gateway, presenter);
     }
 }
