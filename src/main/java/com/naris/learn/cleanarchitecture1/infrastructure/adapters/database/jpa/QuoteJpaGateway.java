@@ -3,7 +3,7 @@ package com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa;
 import com.naris.learn.cleanarchitecture1.domain.entities.Quote;
 import com.naris.learn.cleanarchitecture1.domain.ports.database.QuoteGateway;
 import com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.model.QuoteJpaModel;
-import com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.model.QuoteModelMapper;
+import com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.helpers.QuoteModelMapper;
 
 import java.util.List;
 import java.util.Optional;

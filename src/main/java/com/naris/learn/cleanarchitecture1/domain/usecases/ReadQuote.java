@@ -1,7 +1,7 @@
 package com.naris.learn.cleanarchitecture1.domain.usecases;
 
-import com.naris.learn.cleanarchitecture1.domain.entities.Quote;
 import com.naris.learn.cleanarchitecture1.domain.entities.response.ResponseQuote;
+import com.naris.learn.cleanarchitecture1.domain.helpers.QuoteEntityMapper;
 import com.naris.learn.cleanarchitecture1.domain.ports.database.QuoteGateway;
 import com.naris.learn.cleanarchitecture1.domain.ports.presenters.QuotePresenter;
 import com.naris.learn.cleanarchitecture1.domain.ports.usecases.ReadQuoteInputBoundary;
@@ -22,7 +22,7 @@ public class ReadQuote implements ReadQuoteInputBoundary {
     @Override
     public List<ResponseQuote> getAll() {
         return quoteGateway.getAll().stream()
-                .map(Quote::toRequestQuote)
+                .map(QuoteEntityMapper.quoteToRequestQuote)
                 .map(presenter::presentSuccess)
                 .collect(Collectors.toList());
     }
@@ -30,7 +30,7 @@ public class ReadQuote implements ReadQuoteInputBoundary {
     @Override
     public ResponseQuote getOne(int id) {
         return quoteGateway.getOne(id)
-                .map(Quote::toRequestQuote)
+                .map(QuoteEntityMapper.quoteToRequestQuote)
                 .map(presenter::presentSuccess)
                 .orElseGet(() -> presenter.presentFail("Quote not found"));
     }

@@ -2,6 +2,7 @@ package com.naris.learn.cleanarchitecture1.domain.usecases;
 
 import com.naris.learn.cleanarchitecture1.domain.entities.request.RequestQuote;
 import com.naris.learn.cleanarchitecture1.domain.entities.response.ResponseQuote;
+import com.naris.learn.cleanarchitecture1.domain.helpers.QuoteEntityMapper;
 import com.naris.learn.cleanarchitecture1.domain.ports.database.QuoteGateway;
 import com.naris.learn.cleanarchitecture1.domain.ports.presenters.QuotePresenter;
 import com.naris.learn.cleanarchitecture1.domain.ports.usecases.SaveQuoteInputBoundary;
@@ -18,6 +19,10 @@ public class SaveQuote implements SaveQuoteInputBoundary {
 
     @Override
     public ResponseQuote save(RequestQuote requestQuote) {
-        return presenter.presentSuccess(quoteGateway.save(requestQuote.toQuote()).toRequestQuote());
+        return QuoteEntityMapper.requestQuoteToQuote
+                .andThen(quoteGateway::save)
+                .andThen(QuoteEntityMapper.quoteToRequestQuote)
+                .andThen(presenter::presentSuccess)
+                .apply(requestQuote);
     }
 }

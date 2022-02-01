@@ -1,6 +1,7 @@
-package com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.model;
+package com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.helpers;
 
 import com.naris.learn.cleanarchitecture1.domain.entities.Quote;
+import com.naris.learn.cleanarchitecture1.infrastructure.adapters.database.jpa.model.QuoteJpaModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

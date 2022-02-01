@@ -1,7 +1,5 @@
 package com.naris.learn.cleanarchitecture1.domain.entities.request;
 
-import com.naris.learn.cleanarchitecture1.domain.entities.Quote;
-
 public class RequestQuote {
     private int id;
     private String sentence;
@@ -23,9 +21,5 @@ public class RequestQuote {
 
     public String getAuthor() {
         return author;
-    }
-
-    public Quote toQuote() {
-        return new Quote(this.getId(), this.getSentence(), this.getAuthor());
     }
 }
